@@ -303,11 +303,23 @@ a,
 
 ```
 
+# 七、问题
 
+### 1.文本中每行都有Delete `␍`
 
+使用VSCode开发Vue3项目，编辑的文本中每行都有Delete `␍`eslint(prettier/prettier)错误，查找原因发现是Windows系统下，按回车时插入回车和换行CRLF两个符号，而这在eslint看来是警告错误，解决办法是在.eslintrc.cjs中增加配置，说明这种情况不是错误：
 
+```js
+"rules": {
+"prettier/prettier": ["error", { "endOfLine": "auto" }]
+}
+```
 
+### 2.【VUE】报错:Component name “Login“ should always be multi-word.
 
+报错：[Component](https://so.csdn.net/so/search?q=Component&spm=1001.2101.3001.7020) name “Login” should always be multi-word.意思是说组件名"Login"应该总是多个单词，其实就是eslint报出我的组件名称命名不规范，应该采用驼峰命名法。
+
+解决：可以将组件名称改成 LoginView.vue
 
 
 
