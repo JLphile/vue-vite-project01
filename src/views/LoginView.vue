@@ -1,11 +1,11 @@
 <template>
-  <div id="login-all">
-    <!-- <h1>LoginView</h1> -->
+  <div id="background">
+    <div id="logo">myLogo</div>
   </div>
 </template>
 
 <style scoped>
-#login-all {
+#background {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -25,5 +25,14 @@
   100% {
     background-position: 0% 50%;
   }
+}
+#logo {
+  color: aliceblue;
+  font-size: 25px;
+  font-weight: 800;
+  text-transform: uppercase;
+  position: absolute;
+  top: 15%;
+  left: 15%;
 }
 </style>
