@@ -14,10 +14,10 @@
           <el-button type="primary">登陆</el-button>
         </div>
       </el-card>
-      <div id="clock">
-        <div id="time">{{ time }}</div>
-        <div id="date">{{ date }}</div>
-      </div>
+    </div>
+    <div id="clock">
+      <div id="time">{{ time }}</div>
+      <div id="date">{{ date }}</div>
     </div>
   </div>
 </template>
@@ -96,11 +96,23 @@ let time = hour + ":" + min;
   padding-left: 15px;
   padding-right: 15px;
 }
-
 .box-card {
   width: 373px;
   height: 210px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 15px;
+}
+#clock {
+  color: aliceblue;
+  position: absolute;
+  top: 70%;
+  left: 15%;
+  text-align: left;
+}
+#time {
+  font-size: 100px;
+}
+#date {
+  font-size: 35px;
 }
 </style>
