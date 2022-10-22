@@ -16,43 +16,16 @@
       </el-card>
     </div>
     <div id="clock">
-      <div id="time">{{ time }}</div>
-      <div id="date">{{ date }}</div>
+      <date-time></date-time>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import DateTime from "../components/header/DateTime.vue";
 const username = ref("");
 const password = ref("");
-
-const d = new Date();
-let year: string | number = d.getFullYear();
-let mon: string | number = d.getMonth() + 1;
-let day: string | number = d.getDate();
-let hour: string | number = d.getHours();
-let min: string | number = d.getMinutes();
-if (year < 10) {
-  year = "0" + String(year);
-}
-if (year < 10) {
-  year = "0" + String(year);
-}
-if (mon < 10) {
-  mon = "0" + String(mon);
-}
-if (day < 10) {
-  day = "0" + String(day);
-}
-if (hour < 10) {
-  hour = "0" + String(hour);
-}
-if (min < 10) {
-  min = "0" + String(min);
-}
-let date = year + "/" + mon + "/" + day;
-let time = hour + ":" + min;
 </script>
 
 <style scoped>
@@ -108,11 +81,8 @@ let time = hour + ":" + min;
   top: 70%;
   left: 15%;
   text-align: left;
-}
-#time {
-  font-size: 100px;
-}
-#date {
-  font-size: 35px;
+  font-size: 15px;
+  width: 125px;
+  font-weight: bold;
 }
 </style>
