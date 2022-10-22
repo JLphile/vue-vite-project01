@@ -321,7 +321,53 @@ a,
 
 解决：可以将组件名称改成 LoginView.vue
 
+### 3.格式化时间并实时显示
 
+3.1 src/utils/formateDate.ts
+
+```ts
+const complement = function (value: any) {
+  return value < 10 ? `0${value}` : value;
+};
+
+export const formateDate = (date: any) => {
+  const time = new Date(date);
+  const year = time.getFullYear();
+  const month = complement(time.getMonth() + 1);
+  const day = complement(time.getDate());
+  const hour = complement(time.getHours());
+  const minute = complement(time.getMinutes());
+  const second = complement(time.getSeconds());
+  const week = "星期" + "日一二三四五六".charAt(time.getDay());
+  return `${year}年${month}月${day}日 ${week} ${hour}:${minute}:${second}`;
+};
+
+```
+
+3.2 src/components/header/DateTime.vue
+
+```ts
+<template>
+  <div id="clock">{{ date }}</div>
+</template>
+
+<script lang="ts" setup>
+import { formateDate } from "@/utils/formatterData";
+import { ref, onMounted } from "vue";
+const date = ref("");
+onMounted(() => {
+  setInterval(() => {
+    getDate();
+  }, 1000);
+});
+
+const getDate = function () {
+  date.value = formateDate(new Date());
+};
+</script>
+
+<style scoped></style>
+```
 
 
 
